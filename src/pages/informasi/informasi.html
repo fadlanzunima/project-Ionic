@@ -18,11 +18,53 @@
   </ion-toolbar>
 </ion-header>
 
-
 <ion-content>
 <div [ngSwitch]="segmen">
   <ion-list *ngSwitchCase="'daftarptn'">
-    
+    <ion-item>
+      <ion-thumbnail item-left>
+        <img src="assets/img/ipb.png">
+      </ion-thumbnail>
+      <h2>IPB</h2>
+      <p>Institut Pertanian Bogor</p>
+      <button ion-button clear item-right>View</button>
+    </ion-item>
+
+    <ion-item>
+      <ion-thumbnail item-left>
+        <img src="assets/img/ui.png">
+      </ion-thumbnail>
+      <h2>UI</h2>
+      <p>Universitas Indonesia</p>
+      <button ion-button clear item-right>View</button>
+    </ion-item>
+
+    <ion-item>
+      <ion-thumbnail item-left>
+        <img src="assets/img/itb.png">
+      </ion-thumbnail>
+      <h2>ITB</h2>
+      <p>Institut Teknologi Bandung</p>
+      <button ion-button clear item-right>View</button>
+    </ion-item>
+
+    <ion-item>
+      <ion-thumbnail item-left>
+        <img src="assets/img/unpad.png">
+      </ion-thumbnail>
+      <h2>UNPAD</h2>
+      <p>Universitas Padjajaran</p>
+      <button ion-button clear item-right>View</button>
+    </ion-item>
+
+    <ion-item>
+      <ion-thumbnail item-left>
+        <img src="assets/img/unj.png">
+      </ion-thumbnail>
+      <h2>UNJ</h2>
+      <p>Universitas Negeri Jakarta</p>
+      <button ion-button clear item-right>View</button>
+    </ion-item>
   </ion-list>
 </div>
 </ion-content>
