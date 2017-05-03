@@ -1,0 +1,3 @@
+[submodule "projectIonic"]
+	path = project-Ionic
+	url = https://github.com/fadlanzunima/project-Ionic.git
