@@ -18,6 +18,7 @@
   </ion-toolbar>
 </ion-header>
 
+
 <ion-content>
 <div [ngSwitch]="segmen">
   <ion-list *ngSwitchCase="'daftarptn'">
@@ -67,4 +68,20 @@
     </ion-item>
   </ion-list>
 </div>
+</ion-content>
+
+<ion-content>
+  <div [ngSwitch]="segmen">
+    <ion-list *ngSwitchCase="'informasiumum'">
+      <button ion-item>
+          Jadwal Pendaftaran
+      </button>
+      <button ion-item>
+          Jadwal SBMPTN
+      </button>
+       <button ion-item>
+          Jadwal Ujian Mandiri
+      </button>
+    </ion-list>
+  </div>
 </ion-content>

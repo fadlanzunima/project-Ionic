@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, App } from 'ionic-angular';
 import { UserData } from '../../providers/user-data';
 import { LoginPage } from '../../pages/login/login';
-
+import { EditProfilePage } from '../../pages/edit-profile/edit-profile';
+import { FIREBASE_PROVIDERS, FirebaseListObservable, defaultFirebase, AngularFire, AuthMethods, AuthProviders, firebaseAuthConfig } from 'angularfire2';
 /*
   Generated class for the Profile page.
 
@@ -15,7 +16,12 @@ import { LoginPage } from '../../pages/login/login';
 })
 export class ProfilePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public userData: UserData, public app: App) {}
+  siswaList: FirebaseListObservable<any>;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public userData: UserData, public app: App, public af: AngularFire) {
+    this.siswaList = af.database.list('/siswa');
+  }
+      
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfilePage');
@@ -23,6 +29,9 @@ export class ProfilePage {
   logoutProses(){
     this.userData.logout();
     this.app.getRootNav().setRoot(LoginPage);
+  }
+  goToEditProfile(){
+    this.navCtrl.push(EditProfilePage);
   }
   
 }

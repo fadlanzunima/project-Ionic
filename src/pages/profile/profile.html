@@ -5,13 +5,33 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar>
     <ion-title>Profile</ion-title>
   </ion-navbar>
-
 </ion-header>
 
 <ion-content padding>
-  <button ion-button (click)="logoutProses()">Logout</button>
+  <ion-card>
+    <img src="assets/img/ipb.png"/>
+
+    <ion-card-content>
+      <ion-card-title>
+        Institut Pertanian Bogor
+      </ion-card-title>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-list>
+
+    <ion-item (click)="goToEditProfile()">
+        <ion-icon name="create" item-left></ion-icon>
+          Edit Profile          
+    </ion-item>
+
+    <ion-item (click)="logoutProses()">
+        <ion-icon name="log-out" item-left></ion-icon>
+          Logout          
+    </ion-item>
+  </ion-list>
+
 </ion-content>
