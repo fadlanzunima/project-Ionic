@@ -23,7 +23,7 @@
       </ion-item>
     
     <div padding>
-      <button ion-button color="primary" block (click)="loginProses()">Login</button>
+      <button ion-button color="primary" block (click)="presentLoading()" (click)="loginProses()">Login</button>
       <ion-label align="center">OR</ion-label> 
       <button ion-button block (click)="goToRegister()">Registrasi</button>
     </div>

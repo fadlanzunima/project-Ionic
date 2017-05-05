@@ -11,6 +11,15 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { KalenderPage } from '../pages/kalender/kalender';
 import { ProfilePage } from '../pages/profile/profile';
 import { EditProfilePage } from '../pages/edit-profile/edit-profile';
+import { SyaratPendaftaranPage } from '../pages/syarat-pendaftaran/syarat-pendaftaran';
+import { JadwalSbmptnPage } from '../pages/jadwal-sbmptn/jadwal-sbmptn';
+import { JadwalMandiriPage } from '../pages/jadwal-mandiri/jadwal-mandiri';
+import { IpbPage } from '../pages/kampus/ipb/ipb';
+import { UiPage } from '../pages/kampus/ui/ui';
+import { ItbPage } from '../pages/kampus/itb/itb';
+import { UnpadPage } from '../pages/kampus/unpad/unpad';
+import { UnjPage } from '../pages/kampus/unj/unj';
+
 
 import { UserData } from '../providers/user-data';
 import { Storage } from '@ionic/storage';
@@ -43,7 +52,15 @@ const myFirebaseAuthConfig = {
     TabsPage,
     KalenderPage,
     ProfilePage,
-    EditProfilePage
+    EditProfilePage,
+    SyaratPendaftaranPage,
+    JadwalSbmptnPage,
+    JadwalMandiriPage,
+    IpbPage,
+    UiPage,
+    ItbPage,
+    UnpadPage,
+    UnjPage
   ],
   imports: [
     BrowserModule,
@@ -60,7 +77,15 @@ const myFirebaseAuthConfig = {
     TabsPage,
     KalenderPage,
     ProfilePage,
-    EditProfilePage
+    EditProfilePage,
+    SyaratPendaftaranPage,
+    JadwalSbmptnPage,
+    JadwalMandiriPage,
+    IpbPage,
+    UiPage,
+    ItbPage,
+    UnpadPage,
+    UnjPage
   ],
   providers: [
     StatusBar,

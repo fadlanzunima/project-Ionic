@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { UserData } from '../../providers/user-data';
 import { TabsPage } from '../tabs/tabs';
 import { RegisterPage } from '../../pages/register/register';
+import { LoadingController } from 'ionic-angular';
 
 /**
  * Generated class for the Login page.
@@ -17,13 +18,20 @@ import { RegisterPage } from '../../pages/register/register';
 })
 export class LoginPage {
   
-  constructor(public navCtrl: NavController, public navParams: NavParams, public userData: UserData) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams, public userData: UserData, public loadingCtrl: LoadingController) {}
 
   loginProses() {
     this.userData.login();
-    this.navCtrl.push(TabsPage);
+    this.navCtrl.setRoot(TabsPage);
   }
   goToRegister(){
     this.navCtrl.push(RegisterPage);
-    }
+  }
+  presentLoading() {
+    this.loadingCtrl.create({
+      content: 'Please wait...',
+      duration: 3500,
+      dismissOnPageChange: true
+    }).present();
+  }
   }
