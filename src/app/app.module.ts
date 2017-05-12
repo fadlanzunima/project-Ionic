@@ -23,6 +23,7 @@ import { UnjPage } from '../pages/kampus/unj/unj';
 
 import { UserData } from '../providers/user-data';
 import { Storage } from '@ionic/storage';
+import { NgCalendarModule  } from 'ionic2-calendar';
 
 import { FIREBASE_PROVIDERS, defaultFirebase, AngularFire, firebaseAuthConfig } from 'angularfire2';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -63,6 +64,7 @@ const myFirebaseAuthConfig = {
     UnjPage
   ],
   imports: [
+    NgCalendarModule,
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseConfig, myFirebaseAuthConfig)
