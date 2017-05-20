@@ -12,7 +12,36 @@
 
 </ion-header>
 
-
 <ion-content padding>
+  
+   <ion-grid>
+
+    <ion-row>
+          <ion-col width-65>
+            <th> Nama Prodi </th>
+          </ion-col>
+          <ion-col width-25>
+            <th> Akreditasi </th>
+          </ion-col>
+          <ion-col width-10>
+            <th> Kuota </th>
+          </ion-col>
+    </ion-row>
+
+    <ion-row *ngFor="let prodi of ipbList |async ">
+        <ion-col width-65>
+          <td>{{prodi.nama_prodi}}</td>
+        </ion-col>
+
+        <ion-col width-25>
+          <td>{{prodi.akreditasi}}</td>
+        </ion-col>
+
+        <ion-col width-10>
+          <td>{{prodi.kuota}}</td>
+        </ion-col>
+    </ion-row>
+   </ion-grid> 
+    <button ion-button color="primary" block (click) = "goToAdmin()" >Tambah</button>
 
 </ion-content>

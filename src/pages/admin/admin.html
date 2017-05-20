@@ -17,26 +17,21 @@
     <ion-list>
       <ion-item>
         <ion-label color="primary" stacked>Nama Prodi</ion-label>
-        <ion-input type="text" value=""></ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-label color="primary" stacked>Nama PTN</ion-label>
-        <ion-input type="text" value=""></ion-input>
+        <ion-input type="text" [(ngModel)]= "nama_prodi" ></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label color="primary" stacked>Akreditasi</ion-label>
-        <ion-input type="text" value=""></ion-input>
+        <ion-input type="text" [(ngModel)]= "akreditasi"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label color="primary" stacked>Kuota</ion-label>
-        <ion-input type="text" value=""></ion-input>
+        <ion-input type="text" [(ngModel)]= "kuota"></ion-input>
       </ion-item>
 
     <div padding>
-      <button ion-button color="primary" block>Tambah</button>
+      <button ion-button color="primary" block (click) = "TambahProdi(nama_prodi,akreditasi,kuota)">Tambah</button>
     </div>
   </ion-list>
 

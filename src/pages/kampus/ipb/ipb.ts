@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-
+import { AdminPage } from '../../../pages/admin/admin';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2';
 /*
   Generated class for the Ipb page.
 
@@ -13,10 +14,19 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class IpbPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  public ipbList : FirebaseListObservable<any>;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+  public af: AngularFireDatabase) {
+    this.ipbList = af.list('/Daftar Prodi/IPB');
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad IpbPage');
+  }
+
+  goToAdmin(){
+    this.navCtrl.push(AdminPage);
   }
 
 }
