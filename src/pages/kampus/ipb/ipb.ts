@@ -19,6 +19,9 @@ export class IpbPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,
   public af: AngularFireDatabase) {
     this.ipbList = af.list('/Daftar Prodi/IPB');
+    this.ipbList.forEach((value)=> {
+        console.log("my list is :", value);
+    });
   }
 
   ionViewDidLoad() {
