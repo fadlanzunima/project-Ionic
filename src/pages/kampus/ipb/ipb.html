@@ -5,43 +5,60 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
-  <ion-navbar color="primary">
-    <ion-title>Institut Pertanian Bogor</ion-title>
-  </ion-navbar>
-
+  <ion-toolbar color="primary">
+    <ion-segment [(ngModel)]="segmen" color="contrast">
+      <ion-segment-button value="daftarprodi">
+        Daftar Prodi
+      </ion-segment-button>
+      <ion-segment-button value="Tentang">
+        Tentang
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  
-   <ion-grid>
+  <div [ngSwitch]="segmen">  
+        <ion-grid *ngSwitchCase="'daftarprodi'">
+          <ion-row>
+                <ion-col width-65>
+                  <th> Nama Prodi </th>
+                </ion-col>
+                <ion-col width-25>
+                  <th> Akreditasi </th>
+                </ion-col>
+                <ion-col width-10>
+                  <th> Kuota </th>
+                </ion-col>
+          </ion-row>
 
-    <ion-row>
-          <ion-col width-65>
-            <th> Nama Prodi </th>
-          </ion-col>
-          <ion-col width-25>
-            <th> Akreditasi </th>
-          </ion-col>
-          <ion-col width-10>
-            <th> Kuota </th>
-          </ion-col>
-    </ion-row>
+          <ion-row *ngFor="let prodi of ipbList | async ">
+              <ion-col width-65>
+                <td>{{prodi.nama_prodi}}</td>
+              </ion-col>
 
-    <ion-row *ngFor="let prodi of ipbList |async ">
-        <ion-col width-65>
-          <td>{{prodi.nama_prodi}}</td>
-        </ion-col>
+              <ion-col width-25>
+                <td>{{prodi.akreditasi}}</td>
+              </ion-col>
 
-        <ion-col width-25>
-          <td>{{prodi.akreditasi}}</td>
-        </ion-col>
-
-        <ion-col width-10>
-          <td>{{prodi.kuota}}</td>
-        </ion-col>
-    </ion-row>
-   </ion-grid> 
-    <button ion-button color="primary" block (click) = "goToAdmin()" >Tambah</button>
+              <ion-col width-10>
+                <td>{{prodi.kuota}}</td>
+              </ion-col>
+          </ion-row>
+        </ion-grid> 
+     <!--<button ion-button color="primary" block (click) = "goToAdmin()" >Tambah</button>-->
+  </div>
+    
+<div [ngSwitch]="segmen">
+    <ion-list *ngSwitchCase="'Tentang'">
+    <ion-item *ngFor="let d of diseases; let i=index" text-wrap (click)="toggleGroup(i)" [ngClass]="{active: isGroupShown(i)}">
+      <h3>
+        {{d.title}}
+        <ion-icon color="success" item-right [name]="isGroupShown(i) ? 'arrow-dropdown' : 'arrow-dropright'"></ion-icon>
+      </h3>
+      <div *ngIf="isGroupShown(i)">{{d.description}}</div>
+    </ion-item>
+  </ion-list>
+</div>
 
 </ion-content>
