@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2';
+
 
 /*
   Generated class for the SyaratPendaftaran page.
@@ -9,18 +11,29 @@ import { NavController, NavParams } from 'ionic-angular';
 */
 @Component({
   selector: 'page-syarat-pendaftaran',
-  templateUrl: 'syarat-pendaftaran.html'
+  templateUrl : 'syarat-pendaftaran.html'
 })
 export class SyaratPendaftaranPage {
   shownGroup = null;
-  diseases = [
-    { title: "Syarat Jalur SNMPTN", description: "Type 1 diabetes is an autoimmune disease in which the body’s immune system attacks and destroys the beta cells in the pancreas that make insulin." },
-    { title: "Syarat Jalur SBMPTN", description: "Multiple sclerosis (MS) is an autoimmune disease in which the body's immune system mistakenly attacks myelin, the fatty substance that surrounds and protects the nerve fibers in the central nervous system." },
+  public informasi1 : FirebaseListObservable<any[]>;
+  public informasi2 : FirebaseListObservable<any[]>;
+  public originalData=[];
+  public data: any;
+
+
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,public af: AngularFireDatabase) {
+    this.informasi1= af.list('/Informasi Umum/SNMPTN')
+    this.informasi2= af.list('/Informasi Umum/SBMPTN')
+    this.informasi1.forEach((value)=> {
+        console.log("my list is :", value);
+    });
+  }
+diseases = [
+    { title: "Syarat Jalur SNMPTN" },
+    { title: "Syarat Jalur SBMPTN" },
     { title: "Syarat Jalur Mandiri", description: "Syaratnya liat di PTN masing-masing." }
   ];
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
-
   ionViewDidLoad() {
     console.log('ionViewDidLoad SyaratPendaftaranPage');
   }
@@ -31,6 +44,7 @@ export class SyaratPendaftaranPage {
     } else {
         this.shownGroup = group;
     }
+    console.log(this.informasi1);
   }
 
   isGroupShown(group) {

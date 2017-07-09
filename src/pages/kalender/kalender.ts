@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2';
 
 /*
   Generated class for the Kalender page.
@@ -12,8 +13,21 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'kalender.html'
 })
 export class KalenderPage {
+    public event : FirebaseListObservable<any>;
+    events = {
+        id : '',
+        namaevent : '',
+        start : '',
+        end : ''
+    }
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams, public af: AngularFireDatabase) {
+    this.event = af.list('/Event');
+    this.events.id = this.navParams.get('id');
+    this.events.namaevent = this.navParams.get('namaevent');
+    this.events.start = this.navParams.get('start');
+    this.events.end = this.navParams.get('end');
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad KalenderPage');
@@ -50,6 +64,7 @@ export class KalenderPage {
         event.setHours(0, 0, 0, 0);
         this.isToday = today.getTime() === event.getTime();
     }
+   
     createRandomEvents() {
         var events = [];
         for (var i = 0; i < 50; i += 1) {
@@ -66,23 +81,23 @@ export class KalenderPage {
                 }
                 endTime = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate() + endDay));
                 events.push({
-                    title: 'All Day - ' + i,
+                    title: event,
                     startTime: startTime,
                     endTime: endTime,
                     allDay: true
                 });
-            } else {
-                var startMinute = Math.floor(Math.random() * 24 * 60);
-                var endMinute = Math.floor(Math.random() * 180) + startMinute;
-                startTime = new Date(date.getFullYear(), date.getMonth(), date.getDate() + startDay, 0, date.getMinutes() + startMinute);
-                endTime = new Date(date.getFullYear(), date.getMonth(), date.getDate() + endDay, 0, date.getMinutes() + endMinute);
-                events.push({
-                    title: 'Event - ' + i,
-                    startTime: startTime,
-                    endTime: endTime,
-                    allDay: false
-                });
-            }
+        } else {
+            var startMinute = Math.floor(Math.random() * 24 * 60);
+            var endMinute = Math.floor(Math.random() * 180) + startMinute;
+            startTime = new Date(date.getFullYear(), date.getMonth(), date.getDate() + startDay, 0, date.getMinutes() + startMinute);
+            endTime = new Date(date.getFullYear(), date.getMonth(), date.getDate() + endDay, 0, date.getMinutes() + endMinute);
+            events.push({
+                title: 'Event - ' + i,
+                startTime: startTime,
+                endTime: endTime,
+                allDay: false
+            });
+        }
         }
         return events;
     }

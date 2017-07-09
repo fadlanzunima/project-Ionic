@@ -39,6 +39,14 @@ export const firebaseConfig = {
   storageBucket: "projek-psbo.appspot.com",
   messagingSenderId: "253696722106"
 };
+/*export const firebaseConfig = {
+  apiKey: "AIzaSyBYDCBu_mnOXCdLQEOD0e0Hm36qgraA_-0",
+    authDomain: "coba-eb954.firebaseapp.com",
+    databaseURL: "https://coba-eb954.firebaseio.com",
+    projectId: "coba-eb954",
+    storageBucket: "coba-eb954.appspot.com",
+    messagingSenderId: "474129126879"
+};*/
 const myFirebaseAuthConfig = {
   provider: AuthProviders.Password,
   method: AuthMethods.Password

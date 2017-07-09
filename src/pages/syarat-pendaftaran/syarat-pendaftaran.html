@@ -12,13 +12,23 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-list>
-    <ion-item *ngFor="let d of diseases; let i=index" text-wrap (click)="toggleGroup(i)" [ngClass]="{active: isGroupShown(i)}">
+  <ion-list *ngFor="let d of diseases ; let i=index">
+    
+    <ion-item text-wrap (click)="toggleGroup(i)" [ngClass]="{active: i}">
       <h3>
         {{d.title}}
         <ion-icon color="success" item-right [name]="isGroupShown(i) ? 'arrow-dropdown' : 'arrow-dropright'"></ion-icon>
       </h3>
-      <div *ngIf="isGroupShown(i)">{{d.description}}</div>
+      <div *ngIf="isGroupShown(i)" >
+        <div *ngIf="i == 0" >
+          <div *ngFor="let info of informasi1 | async ">{{info.title}}</div>
+        </div>
+      </div>
+      <tr *ngIf="isGroupShown(i)" >
+        <div *ngIf="i == 1" >
+         <div *ngFor="let info of informasi2 | async ">{{info.title}}</div>
+        </div>
+      </tr>
     </ion-item>
   </ion-list>
 </ion-content>

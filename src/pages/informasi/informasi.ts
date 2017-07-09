@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams , AlertController} from 'ionic-angular';
 import { SyaratPendaftaranPage } from '../../pages/syarat-pendaftaran/syarat-pendaftaran';
 import { JadwalSbmptnPage } from '../../pages/jadwal-sbmptn/jadwal-sbmptn';
 import { JadwalMandiriPage } from '../../pages/jadwal-mandiri/jadwal-mandiri';
@@ -8,6 +8,8 @@ import { UiPage } from '../../pages/kampus/ui/ui';
 import { ItbPage } from '../../pages/kampus/itb/itb';
 import { UnpadPage } from '../../pages/kampus/unpad/unpad';
 import { UnjPage } from '../../pages/kampus/unj/unj';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2';
+
 
 /*
   Generated class for the Informasi page.
@@ -22,12 +24,46 @@ import { UnjPage } from '../../pages/kampus/unj/unj';
 
 export class InformasiPage {
   public segmen= "daftarptn";
+   public informasi: FirebaseListObservable<any[]>;
+  public originalData=[];
+ public data:any;
+  
+  constructor(public navCtrl: NavController, public navParams: NavParams, public af: AngularFireDatabase,
+  public alertCtrl: AlertController) {
+   
+}
+addlist() {
+  let prompt = this.alertCtrl.create({
+    inputs: [
+      {
+        name: 'title',
+      },
+    ],
+    buttons: [
+      {
+        text: 'Cancel',
+        handler: data => {
+          console.log('Cancel clicked');
+        }
+      },
+      {
+        text: 'Save',
+        handler: data => {
+          this.informasi = this.af.list('/Informasi Umum/SBMPTN');
+    this.originalData = [];
+   /*for(let a of this.data){
+      this.originalData.push(a);
+  }*/
+          this.informasi.push({
+            title: data.title
+          });
+        }
+      }
+    ]
+});
+ prompt.present();
+}   
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad InformasiPage');
-  }
   goToSyarat(){
       this.navCtrl.push(SyaratPendaftaranPage);
     }
