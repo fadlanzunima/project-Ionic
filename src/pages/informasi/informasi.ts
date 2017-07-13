@@ -49,7 +49,7 @@ addlist() {
       {
         text: 'Save',
         handler: data => {
-          this.informasi = this.af.list('/Informasi Umum/SBMPTN');
+          this.informasi = this.af.list('/Informasi Umum/Jadwal SBMPTN');
     this.originalData = [];
    /*for(let a of this.data){
       this.originalData.push(a);

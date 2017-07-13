@@ -20,6 +20,7 @@ import { ItbPage } from '../pages/kampus/itb/itb';
 import { UnpadPage } from '../pages/kampus/unpad/unpad';
 import { UnjPage } from '../pages/kampus/unj/unj';
 import { AdminPage } from "../pages/admin/admin";
+import { EventPage } from "../pages/event/event"
 
 
 import { UserData } from '../providers/user-data';
@@ -39,14 +40,7 @@ export const firebaseConfig = {
   storageBucket: "projek-psbo.appspot.com",
   messagingSenderId: "253696722106"
 };
-/*export const firebaseConfig = {
-  apiKey: "AIzaSyBYDCBu_mnOXCdLQEOD0e0Hm36qgraA_-0",
-    authDomain: "coba-eb954.firebaseapp.com",
-    databaseURL: "https://coba-eb954.firebaseio.com",
-    projectId: "coba-eb954",
-    storageBucket: "coba-eb954.appspot.com",
-    messagingSenderId: "474129126879"
-};*/
+
 const myFirebaseAuthConfig = {
   provider: AuthProviders.Password,
   method: AuthMethods.Password
@@ -60,7 +54,7 @@ const myFirebaseAuthConfig = {
     RegisterPage,
     InformasiPage,
     TabsPage,
-    KalenderPage,
+   KalenderPage,
     ProfilePage,
     EditProfilePage,
     SyaratPendaftaranPage,
@@ -71,7 +65,8 @@ const myFirebaseAuthConfig = {
     ItbPage,
     UnpadPage,
     UnjPage,
-    AdminPage
+    AdminPage,
+    EventPage
   ],
   imports: [
     NgCalendarModule,
@@ -98,7 +93,8 @@ const myFirebaseAuthConfig = {
     ItbPage,
     UnpadPage,
     UnjPage,
-    AdminPage
+    AdminPage,
+    EventPage 
   ],
   providers: [
     StatusBar,

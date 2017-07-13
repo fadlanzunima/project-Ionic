@@ -13,6 +13,13 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding >
+  <h2> Jadwal Penting SBMPTN </h2>
+ 
+    <div *ngFor = "let jadwal of jadwalSBM | async">
+     {{jadwal.title}} 
+    </div>
+ 
+
 
 </ion-content>
