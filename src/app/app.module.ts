@@ -20,7 +20,8 @@ import { ItbPage } from '../pages/kampus/itb/itb';
 import { UnpadPage } from '../pages/kampus/unpad/unpad';
 import { UnjPage } from '../pages/kampus/unj/unj';
 import { AdminPage } from "../pages/admin/admin";
-import { EventPage } from "../pages/event/event"
+import { EventPage } from "../pages/event/event";
+import { OnboardPage } from "../pages/onboard/onboard";
 
 
 import { UserData } from '../providers/user-data';
@@ -66,7 +67,8 @@ const myFirebaseAuthConfig = {
     UnpadPage,
     UnjPage,
     AdminPage,
-    EventPage
+    EventPage,
+    OnboardPage
   ],
   imports: [
     NgCalendarModule,
@@ -94,7 +96,8 @@ const myFirebaseAuthConfig = {
     UnpadPage,
     UnjPage,
     AdminPage,
-    EventPage 
+    EventPage,
+    OnboardPage 
   ],
   providers: [
     StatusBar,

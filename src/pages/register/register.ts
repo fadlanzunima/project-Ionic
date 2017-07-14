@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, AlertController, ActionSheetController, NavParams } from 'ionic-angular';
+import {AngularFire, FirebaseListObservable} from 'angularfire2';
 
 /*
   Generated class for the Register page.
@@ -12,13 +13,26 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'register.html'
 })
 export class RegisterPage {
-   public event = {
-    month: '1990-02-19',
-    timeStarts: '07:43',
-    timeEnds: '1990-02-20'
+  public siswaList: FirebaseListObservable<any>;
+
+  constructor(public navCtrl: NavController,public alertCtrl: AlertController, 
+  public af: AngularFire, public actionSheetCtrl: ActionSheetController, 
+  public navParams: NavParams)
+  {
+  this.siswaList = af.database.list('/siswa');
   }
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  regisSiswa(nama,asal_sekolah,email){
+      this.siswaList.push({
+      nama : nama,
+      asal_sekolah : asal_sekolah,
+      email : email
+    }).then( newSiswi =>{
+      this.navCtrl.pop();
+    },  error => {
+      console.log(error);
+    });
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisterPage');

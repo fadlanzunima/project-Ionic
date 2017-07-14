@@ -6,30 +6,32 @@
 -->
 <ion-header>
   <ion-navbar color="primary">
-    <ion-title>Profile</ion-title>
+    <ion-title>Feedback</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <ion-card>
-    <ion-card-content>
-      <ion-card-title>
-        Institut Pertanian Bogor
-      </ion-card-title>
-    </ion-card-content>
-  </ion-card>
+  <ion-content class="outer-content">
+    <div>
+    <h3>Ayo Berikan Feedback pada aplikasi ini! Untuk kepentingan pengembangan selanjutnya.</h3>
+    </div>
+    <ion-list>
+      <ion-item>
+        <ion-label color="primary" stacked>Nama</ion-label>
+        <ion-input type="text" [(ngModel)]= "nama"></ion-input>
+      </ion-item>
 
-  <ion-list>
+      <ion-item>
+        <ion-label color="primary" stacked>Asal Sekolah</ion-label>
+        <ion-input type="text" [(ngModel)]= "asal_sekolah"></ion-input>
+      </ion-item>
 
-    <ion-item (click)="goToEditProfile()">
-        <ion-icon name="create" item-left></ion-icon>
-          Edit Profile          
-    </ion-item>
-
-    <ion-item (click)="logoutProses()">
-        <ion-icon name="log-out" item-left></ion-icon>
-          Logout          
-    </ion-item>
+      <ion-item>
+        <ion-label color="primary" stacked>Email</ion-label>
+        <ion-input type="email" placeholder="amesikecil@yahoo.com" [(ngModel)]= "email"> </ion-input>
+      </ion-item>
+    
+    <div padding>
+      <button ion-button color="primary" block (click)="doAlert()" (click)= "feedback(nama,asal_sekolah,email)">Submit</button>
+    </div>
   </ion-list>
-
 </ion-content>

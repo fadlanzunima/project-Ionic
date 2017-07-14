@@ -31,8 +31,7 @@ export class SyaratPendaftaranPage {
   }
 diseases = [
     { title: "Syarat Jalur SNMPTN" },
-    { title: "Syarat Jalur SBMPTN" },
-    { title: "Syarat Jalur Mandiri", description: "Syaratnya liat di PTN masing-masing." }
+    { title: "Syarat Jalur SBMPTN" }
   ];
   ionViewDidLoad() {
     console.log('ionViewDidLoad SyaratPendaftaranPage');

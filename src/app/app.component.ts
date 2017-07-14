@@ -7,6 +7,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { TabsPage } from '../pages/tabs/tabs';
 import { UserData } from '../providers/user-data';
 import { LoginPage } from '../pages/login/login';
+import { OnboardPage } from "../pages/onboard/onboard";
 
 @Component({
   templateUrl: 'app.html'
@@ -28,7 +29,7 @@ export class MyApp {
         this.rootPage=TabsPage;
       }
       else
-        this.rootPage=LoginPage;
+        this.rootPage=OnboardPage;
     });
   }
 }

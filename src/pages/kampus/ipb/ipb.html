@@ -45,20 +45,17 @@
                 <td>{{prodi.kuota}}</td>
               </ion-col>
           </ion-row>
-        </ion-grid> 
+        </ion-grid>
+        <ion-grid *ngSwitchCase="'Tentang'">
+          <h3>Jalur Penerimaan Mahasiswa IPB</h3>
+          <ol>
+            <li>Jalur Seleksi Nasional Masuk Perguruan Tinggi Negri(SNMPTN)</li>
+            <li>Jalur Seleksi Bersama Masuk Perguruan Tinggi Negeri (SBMPTN)</li>
+            <li>Jalur Beasiswa Utusan Daerah (BUD)</li>
+            <li>Jalur Ujian Talenta Masuk IPB (UTMI)</li>
+            <li>Jalur Prestasi Internasional-Nasional (PIN)</li>
+          </ol> 
+        </ion-grid>
      <!--<button ion-button color="primary" block (click) = "goToAdmin()" >Tambah</button>-->
   </div>
-    
-<div [ngSwitch]="segmen">
-    <ion-list *ngSwitchCase="'Tentang'">
-    <ion-item *ngFor="let d of diseases; let i=index" text-wrap (click)="toggleGroup(i)" [ngClass]="{active: isGroupShown(i)}">
-      <h3>
-        {{d.title}}
-        <ion-icon color="success" item-right [name]="isGroupShown(i) ? 'arrow-dropdown' : 'arrow-dropright'"></ion-icon>
-      </h3>
-      <div *ngIf="isGroupShown(i)">{{d.description}}</div>
-    </ion-item>
-  </ion-list>
-</div>
-
 </ion-content>

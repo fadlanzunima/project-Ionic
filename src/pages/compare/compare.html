@@ -18,32 +18,32 @@
 </ion-content>-->
 <ion-content>
   <ion-grid>
-    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+    <ion-searchbar (ionInput)="getItems($event)"> </ion-searchbar>
   <ion-row align-items-center>
-      <ion-col width-45>
+      <!-- <ion-col width-45>
         <ion-item no-padding>
           <ion-label color="primary"></ion-label>
-          <ion-input (ionInput)="getItems($event)" type="text" placeholder="Jurusan 1"></ion-input>
+          <ion-input (ionInput)="getItems($event)" type="text" placeholder="Jurusan 1" *ngIf="toggled" (clik)="goToItbPage()"></ion-input>
         </ion-item>
-      </ion-col>
+      </ion-col> -->
       
-    <div>
+    <!-- <div>
       <ion-col width-15>
         <ion-label color="primary">VS</ion-label>
       </ion-col>
-    </div>
+    </div> -->
 
-      <ion-col width-45>
+      <!-- <ion-col width-45>
         <ion-item no-padding>
           <ion-label color="primary"></ion-label>
           <ion-input type="text" placeholder="Jurusan 2"></ion-input>
         </ion-item>
-      </ion-col>
+      </ion-col> -->
 
 
       <ion-col width-20>
         <div>
-          <button ion-button ion-right><ion-icon name="search"></ion-icon></button>
+          <button ion-button right><ion-icon name="search"></ion-icon></button>
         </div>
       </ion-col>
   </ion-row>
