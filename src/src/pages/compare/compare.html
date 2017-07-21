@@ -1,0 +1,55 @@
+<!--
+  Generated template for the Compare page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Compare</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<!--
+<ion-content padding>
+
+</ion-content>-->
+<ion-content>
+  <ion-grid>
+    <ion-searchbar (ionInput)="getItems($event)"> </ion-searchbar>
+  <ion-row align-items-center>
+      <!-- <ion-col width-45>
+        <ion-item no-padding>
+          <ion-label color="primary"></ion-label>
+          <ion-input (ionInput)="getItems($event)" type="text" placeholder="Jurusan 1" *ngIf="toggled" (clik)="goToItbPage()"></ion-input>
+        </ion-item>
+      </ion-col> -->
+      
+    <!-- <div>
+      <ion-col width-15>
+        <ion-label color="primary">VS</ion-label>
+      </ion-col>
+    </div> -->
+
+      <!-- <ion-col width-45>
+        <ion-item no-padding>
+          <ion-label color="primary"></ion-label>
+          <ion-input type="text" placeholder="Jurusan 2"></ion-input>
+        </ion-item>
+      </ion-col> -->
+
+
+      <ion-col width-20>
+        <div>
+          <button ion-button right><ion-icon name="search"></ion-icon></button>
+        </div>
+      </ion-col>
+  </ion-row>
+
+  </ion-grid>
+  <ion-item *ngFor="let item of originalData">
+    {{ item.nama_prodi }} (IPB)
+  </ion-item>
+ </ion-content>

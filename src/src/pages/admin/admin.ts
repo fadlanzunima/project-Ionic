@@ -29,7 +29,7 @@ export class AdminPage {
   }
 
   TambahProdi(nama_prodi,akreditasi,kuota){
-    this.unjList.push({
+    this.uiList.push({
       nama_prodi : nama_prodi,
       akreditasi : akreditasi,
       kuota : kuota

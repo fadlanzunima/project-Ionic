@@ -13,36 +13,25 @@ import {AngularFire, FirebaseListObservable} from 'angularfire2';
   templateUrl: 'register.html'
 })
 export class RegisterPage {
-  public unjList: FirebaseListObservable<any>;
-  prodi = {
-    id: '',
-    nama_prodi : '',
-    akreditasi : '',
-    kuota : ''
-  };
+  public siswaList: FirebaseListObservable<any>;
 
   constructor(public navCtrl: NavController,public alertCtrl: AlertController, 
   public af: AngularFire, public actionSheetCtrl: ActionSheetController, 
   public navParams: NavParams)
   {
-  this.unjList = af.database.list('/Daftar Prodi/UNJ');
-  this.prodi.id = this.navParams.get('key');
-  this.prodi.nama_prodi = this.navParams.get('nama_prodi');
-  this.prodi.akreditasi = this.navParams.get('akreditasi');
-  this.prodi.kuota = this.navParams.get('kuota');
+  this.siswaList = af.database.list('/siswa');
   }
 
-  UpdateProdi(id,nama_prodi,akreditasi,kuota){
-    this.unjList.update(id, {
-     nama_prodi : nama_prodi,
-      akreditasi : akreditasi,
-      kuota : kuota
-    }).then( newProdi =>{
+  regisSiswa(nama,asal_sekolah,email){
+      this.siswaList.push({
+      nama : nama,
+      asal_sekolah : asal_sekolah,
+      email : email
+    }).then( newSiswi =>{
       this.navCtrl.pop();
     },  error => {
       console.log(error);
     });
-  
   }
 
   ionViewDidLoad() {

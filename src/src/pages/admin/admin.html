@@ -1,34 +1,38 @@
 <!--
-  Generated template for the Register page.
+  Generated template for the Admin page.
 
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-navbar color="primary">
-    <ion-title>Registrasi</ion-title>
+
+  <ion-navbar>
+    <ion-title>admin</ion-title>
   </ion-navbar>
+
 </ion-header>
+
 
 <ion-content class="outer-content">
     <ion-list>
       <ion-item>
         <ion-label color="primary" stacked>Nama Prodi</ion-label>
-        <ion-input type="text" [(ngModel)]= "prodi.nama_prodi" ></ion-input>
+        <ion-input type="text" [(ngModel)]= "nama_prodi" ></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label color="primary" stacked>Akreditasi</ion-label>
-        <ion-input type="text" [(ngModel)]= "prodi.akreditasi"></ion-input>
+        <ion-input type="text" [(ngModel)]= "akreditasi"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label color="primary" stacked>Kuota</ion-label>
-        <ion-input type="text" [(ngModel)]= "prodi.kuota"></ion-input>
+        <ion-input type="text" [(ngModel)]= "kuota"></ion-input>
       </ion-item>
 
     <div padding>
-      <button ion-button color="primary" block (click) = "UpdateProdi(id,nama_prodi,akreditasi,kuota)">Update</button>
+      <button ion-button color="primary" block (click) = "TambahProdi(nama_prodi,akreditasi,kuota)">Tambah</button>
     </div>
   </ion-list>
+
 </ion-content>

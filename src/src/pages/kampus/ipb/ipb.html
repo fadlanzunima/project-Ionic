@@ -1,11 +1,10 @@
 <!--
-  Generated template for the Unj page.
+  Generated template for the Ipb page.
 
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-toolbar color="primary">
     <ion-segment [(ngModel)]="segmen" color="contrast">
       <ion-segment-button value="daftarprodi">
@@ -16,7 +15,6 @@
       </ion-segment-button>
     </ion-segment>
   </ion-toolbar>
-
 </ion-header>
 
 <ion-content padding>
@@ -33,9 +31,8 @@
                   <th> Kuota </th>
                 </ion-col>
           </ion-row>
-      
 
-          <ion-row *ngFor="let prodi of unjList | async ">
+          <ion-row *ngFor="let prodi of ipbList | async ">
               <ion-col width-65>
                 <td>{{prodi.nama_prodi}}</td>
               </ion-col>
@@ -48,25 +45,17 @@
                 <td>{{prodi.kuota}}</td>
               </ion-col>
           </ion-row>
-
-           <button ion-button color="primary" block (click) = "goToAdmin()" >Tambah</button>
         </ion-grid>
         <ion-grid *ngSwitchCase="'Tentang'">
-          <ion-list>
-          <ion-item-sliding *ngFor = "let prodi of unjList |async ">
-            <ion-item>
-              <h2> {{prodi.nama_prodi}} </h2>
-              <h3> {{prodi.akreditasi}} </h3>
-              <h4> {{prodi.kuota}}  </h4>
-            </ion-item>
-          <ion-item-options>
-            <button ion-button color="primary" icon-left (click)="editProdi(prodi)">
-            <ion-icon name="ios-create"></ion-icon>
-              Edit
-            </button>
-          </ion-item-options>
-          </ion-item-sliding> 
-          </ion-list>
+          <h3>Jalur Penerimaan Mahasiswa IPB</h3>
+          <ol>
+            <li>Jalur Seleksi Nasional Masuk Perguruan Tinggi Negri(SNMPTN)</li>
+            <li>Jalur Seleksi Bersama Masuk Perguruan Tinggi Negeri (SBMPTN)</li>
+            <li>Jalur Beasiswa Utusan Daerah (BUD)</li>
+            <li>Jalur Ujian Talenta Masuk IPB (UTMI)</li>
+            <li>Jalur Prestasi Internasional-Nasional (PIN)</li>
+          </ol> 
         </ion-grid>
+     <!--<button ion-button color="primary" block (click) = "goToAdmin()" >Tambah</button>-->
   </div>
 </ion-content>

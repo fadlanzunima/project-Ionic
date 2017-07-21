@@ -20,8 +20,7 @@ export class ProfilePage {
   siswi = {
     nama:'',
     asal_sekolah : '',
-    email : '',
-    komentar : ''
+    email : ''
   };
 
   constructor(public navCtrl: NavController,public alertCtrl: AlertController, 
@@ -32,12 +31,11 @@ export class ProfilePage {
   }
 
   
-  feedback(nama,asal_sekolah,email,komentar){
+  feedback(nama,asal_sekolah,email){
       this.siswaList.push({
       nama : nama,
       asal_sekolah : asal_sekolah,
-      email : email,
-      komentar : komentar
+      email : email
     }).then( newSiswi =>{
       this.navCtrl.pop();
     },  error => {
